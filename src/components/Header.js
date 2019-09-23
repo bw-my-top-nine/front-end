@@ -10,11 +10,14 @@ import {
 
 function Header(props) {
     return (
-        <Navbar>
-            <NavbarBrand>My Top Nine</NavbarBrand>
-            <Nav>
+        <Navbar className="navbar-dark bg-dark">
+            <NavbarBrand tag={Link} to="/">My Top Nine</NavbarBrand>
+            <Nav className="mr-auto">
                 <NavItem>
-                    <NavLink tag={Link} to="/login">Log-in</NavLink>
+                    <NavLink tag={Link} to="/categories">Categories</NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink tag={Link} to="/items">Items</NavLink>
                 </NavItem>
             </Nav>
         </Navbar>
