@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { 
     Navbar,
     NavbarBrand,
@@ -14,12 +14,13 @@ function Header(props) {
             <NavbarBrand tag={Link} to="/">My Top Nine</NavbarBrand>
             <Nav className="mr-auto">
                 <NavItem>
-                    <NavLink tag={Link} to="/categories">Categories</NavLink>
+                    <NavLink className="text-light" tag={Link} to="/categories">Categories</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink tag={Link} to="/items">Items</NavLink>
+                    <NavLink className="text-light" tag={Link} to="/items">Items</NavLink>
                 </NavItem>
             </Nav>
+            {/* logged in user stuff ? */}
         </Navbar>
     )
 }

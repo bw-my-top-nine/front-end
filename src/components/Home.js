@@ -26,17 +26,17 @@ function Home(props) {
                 </Row>
                 <Pagination>
                     <PaginationItem>
-                        <PaginationLink first href="#" />
+                        <PaginationLink className="bg-secondary" first href="#" />
                     </PaginationItem>
                     <PaginationItem>
-                        <PaginationLink previous href="#" />
+                        <PaginationLink className="bg-secondary" previous href="#" />
                     </PaginationItem>
                     {/* to do: map nearby page numbers from current page */}
                     <PaginationItem>
-                        <PaginationLink next href="#" />
+                        <PaginationLink className="bg-secondary" next href="#" />
                     </PaginationItem>
                     <PaginationItem>
-                        <PaginationLink last href="#" />
+                        <PaginationLink className="bg-secondary" last href="#" />
                     </PaginationItem>
                 </Pagination>
             </Container>
