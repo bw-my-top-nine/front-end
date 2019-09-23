@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { 
     Navbar,
     NavbarBrand,
@@ -13,7 +14,7 @@ function Header(props) {
             <NavbarBrand>My Top Nine</NavbarBrand>
             <Nav>
                 <NavItem>
-                    <NavLink>Log-in</NavLink>
+                    <NavLink tag={Link} to="/login">Log-in</NavLink>
                 </NavItem>
             </Nav>
         </Navbar>
