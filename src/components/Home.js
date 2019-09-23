@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Row } from 'reactstrap'
+import { Container, Row, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
 import axios from 'axios'
 import ItemList from './ItemList';
 
@@ -24,7 +24,21 @@ function Home(props) {
                 <Row>
                     {/* {userLists.map(list=><div className="col-sm-3"><ItemList {...list} /></div>)} */}
                 </Row>
-                {/* to do: add pagination? */}
+                <Pagination>
+                    <PaginationItem>
+                        <PaginationLink className="bg-secondary" first href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                        <PaginationLink className="bg-secondary" previous href="#" />
+                    </PaginationItem>
+                    {/* to do: map nearby page numbers from current page */}
+                    <PaginationItem>
+                        <PaginationLink className="bg-secondary" next href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                        <PaginationLink className="bg-secondary" last href="#" />
+                    </PaginationItem>
+                </Pagination>
             </Container>
         </section>
     )
