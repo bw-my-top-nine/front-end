@@ -35,6 +35,12 @@ function CreateItem(props) {
                 </Label>
             </FormGroup>
             <FormGroup>
+                <Label className="text-left">
+                    Category
+                    <Input type="text" name="category" placeholder="Item Category" onChange={changeHandler} value={item.category} />
+                </Label>
+            </FormGroup>
+            <FormGroup>
                 <Button>Submit</Button>
             </FormGroup>
         </Form>
