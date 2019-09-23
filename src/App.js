@@ -4,6 +4,7 @@ import Header from './components/Header'
 import RegisterForm from './components/RegisterForm';
 import CreateItem from './components/CreateItem';
 import LoginForm from './components/LoginForm';
+import ItemList from './components/ItemList';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <LoginForm />
       <RegisterForm />
       <CreateItem />
+      <ItemList />
     </div>
   );
 }

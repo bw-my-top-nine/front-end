@@ -28,3 +28,5 @@ function ItemList(props) {
         </Table>
     )
 }
+
+export default ItemList
