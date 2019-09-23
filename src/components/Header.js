@@ -1,8 +1,22 @@
 import React from 'react'
+import { 
+    Navbar,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink
+} from 'reactstrap'
 
 function Header(props) {
     return (
-        <header>top9</header>
+        <Navbar>
+            <NavbarBrand>My Top Nine</NavbarBrand>
+            <Nav>
+                <NavItem>
+                    <NavLink>Log-in</NavLink>
+                </NavItem>
+            </Nav>
+        </Navbar>
     )
 }
 
