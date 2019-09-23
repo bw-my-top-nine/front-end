@@ -4,18 +4,18 @@ import CreateItem from "./CreateItem";
 
 function CreateList() {
 	const [list, setList] = useState([]);
-	useEffect(() => {
-		axios
-			.get("URL")
-			.then(response => {
-				console.log(response.data);
-				const newData = response.data;
-				setList(newData);
-			})
-			.catch(error => {
-				console.error("Not working", error);
-			});
-	}, []);
+	// useEffect(() => {
+	// 	axios
+	// 		.get("URL")
+	// 		.then(response => {
+	// 			console.log(response.data);
+	// 			const newData = response.data;
+	// 			setList(newData);
+	// 		})
+	// 		.catch(error => {
+	// 			console.error("Not working", error);
+	// 		});
+	// }, []);
 
 	return (
 		<section className="item-list">
