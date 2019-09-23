@@ -7,6 +7,16 @@ import axios from 'axios'
 function ItemList(props) {
     const [items, setItems] = useState([])
 
+    // useEffect(()=>{
+    //     axios.get('backend-url')
+    //         .then(resp=>{
+    //             console.log(resp)
+    //         })
+    //         .catch(err=>{
+    //             console.error(err)
+    //         })
+    // }, [])
+
     return (
         <Table>
             <thead>
