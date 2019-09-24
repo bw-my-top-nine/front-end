@@ -18,8 +18,8 @@ const LoginForm = (props) => {
         axiosWithAuth().post('/login', inputValue)
         .then(res => {
             console.log(res)
-            localStorage.setItem('token', res.data.payload)
-            props.history.push('profile comoenent')
+            localStorage.setItem('token', res.data.token)
+            props.history.push('/home')
         })
         .catch(err => console.log(err))
     }

@@ -3,6 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 
 import Header from './components/Header'
+import Home from './components/Home';
 import RegisterForm from './components/RegisterForm';
 import CreateItem from './components/CreateItem';
 import LoginForm from './components/LoginForm';
@@ -16,7 +17,7 @@ function App() {
         <Route exact path='/' render={props => <LoginForm {...props}/>} />
         <Route path ='/register-form' component={RegisterForm} />
         {/*<CreateItem />*/}
-        <PrivateRoute path='home/profilepage' component={'home/profilepage'} />
+        <PrivateRoute path='/home' component={Home} />
         {/*<ItemList />*/}
       </div>
 

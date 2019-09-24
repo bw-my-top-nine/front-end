@@ -2,9 +2,29 @@ import React, {useState, useEffect} from 'react'
 import { Container, Row, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
 import axios from 'axios'
 import ItemList from './ItemList';
+import { axiosWithAuth } from './axiosAuth';
 
 function Home(props) {
+//no props in home    
+    console.log('props in Home', props);
+//for the getData kind of useless rn
+//    const [users, setUsers] = useState()
     const [userLists, setUserLists] = useState([])
+//Axios call to get UserList, kind of useless a.t.m
+//    const getData = () => {
+//        axiosWithAuth().get('/users')
+//        .then(res => {
+//            console.log(res)
+//            setUsers(res.data)
+//        })
+//        .catch(err => console.log(err))
+//    }
+//logs you out, by clearing local storage of token and pushing you to login page currently don't have props
+//    const handleLogOut = () => {
+//        getData();
+//        localStorage.removeItem('token')
+//        props.history.push('/')
+//    }
 
     // Not sure if called here or parent...
     // useEffect(()=>{
@@ -21,6 +41,7 @@ function Home(props) {
         <section>
             <h2>My Lists</h2>
             <Container>
+    {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
                 <Row>
                     {/* {userLists.map(list=><div className="col-sm-3"><ItemList {...list} /></div>)} */}
                 </Row>
