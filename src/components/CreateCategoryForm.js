@@ -21,7 +21,8 @@ const CreateCategory = props => {
 	};
 	const submitForm = event => {
 		event.preventDefault();
-		props.addNewCat(cat);
+		//axios call through either back end or parent
+		console.log(props);
 		setCat({
 			title: "",
 			item1: "",
