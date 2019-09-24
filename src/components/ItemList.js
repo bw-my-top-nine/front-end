@@ -41,12 +41,13 @@ function ItemList(props) {
             <thead className="container row">
                 {props_mockup.thumbnail?<img className="col-sm-3" src={props_mockup.thumbnail} alt={props_mockup.name} />:''}
                 <div className="col-sm-9 text-left">
-                    <h3>{props_mockup.name}</h3>
+                    <h3>My Top Nine {props_mockup.name}</h3>
                     {props_mockup.description?<p>{props_mockup.description}</p>:''}
+                    {/* add edit and delete buttons */}
                 </div>
             </thead>
             <tbody>
-                {props_mockup.items.map(item => <Item key={item.id} {...item} />)}
+                {props_mockup.items.map(item => <tr key={item.id} className="table-dark"><Item {...item} /></tr>)}
             </tbody>
         </Table>
     )
