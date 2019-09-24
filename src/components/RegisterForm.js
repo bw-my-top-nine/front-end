@@ -42,14 +42,14 @@ const RegisterForm = (props) => {
                 value={credentials.password}
                 onChange={handleChange}
                 />
-                {/*
-                Confirm Password
+                {/*Email
                 <input
-                type='password'
-                name='password-comform'
-                placeholder='Confirm Password'
-                />
-                */}
+                type='email'
+                name='email'
+                placeholder='name@email.com'
+                value={credentials.email}
+                onChange={handleChange}
+                />*/}
                 <button>Submit</button>
             </form>
         </div>
