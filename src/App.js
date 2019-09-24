@@ -12,12 +12,12 @@ import ItemList from './components/ItemList';
 function App() {
   return (
       <div className="App">
-        <Header />
+        {/*<Header />*/}
         <Route exact path='/' render={props => <LoginForm {...props}/>} />
-        <RegisterForm />
-        <CreateItem />
+        <Route path ='/register-form' component={RegisterForm} />
+        {/*<CreateItem />*/}
         <PrivateRoute path='home/profilepage' component={'home/profilepage'} />
-        <ItemList />
+        {/*<ItemList />*/}
       </div>
 
   );
