@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Row, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
+import { Container, Row, Pagination, PaginationItem, PaginationLink, Button } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import ItemList from './ItemList';
 import { axiosWithAuth } from './axiosAuth';
@@ -39,7 +40,7 @@ function Home(props) {
 
     return (
         <section>
-            <h2>My Lists</h2>
+            <h2>My Lists <Button className="bg-success" tag={Link} to="/CreateCategoryForm">Create a New List</Button></h2>
             <Container>
     {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
                 <Row>

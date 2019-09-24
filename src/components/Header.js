@@ -12,14 +12,14 @@ function Header(props) {
     return (
         <Navbar className="navbar-dark bg-dark">
             <NavbarBrand tag={Link} to="/">My Top Nine</NavbarBrand>
-            <Nav className="mr-auto">
+            {/* <Nav className="mr-auto">
                 <NavItem>
                     <NavLink className="text-light" tag={Link} to="/categories">Categories</NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className="text-light" tag={Link} to="/items">Items</NavLink>
                 </NavItem>
-            </Nav>
+            </Nav> */}
             {/* logged in user stuff ? */}
         </Navbar>
     )

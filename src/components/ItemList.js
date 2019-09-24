@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table } from 'reactstrap'
+import { Table, Button } from 'reactstrap'
 import axios from 'axios'
 
 import Item from './Item'
@@ -41,12 +41,16 @@ function ItemList(props) {
             <thead className="container row">
                 {props_mockup.thumbnail?<img className="col-sm-3" src={props_mockup.thumbnail} alt={props_mockup.name} />:''}
                 <div className="col-sm-9 text-left">
-                    <h3>{props_mockup.name}</h3>
+                    <h3>
+                        My Top Nine {props_mockup.name}
+                        <Button className="bg-primary mx-3">Edit</Button>
+                        <Button className="bg-danger">Delete</Button>
+                    </h3>
                     {props_mockup.description?<p>{props_mockup.description}</p>:''}
                 </div>
             </thead>
             <tbody>
-                {props_mockup.items.map(item => <Item key={item.id} {...item} />)}
+                {props_mockup.items.map(item => <tr key={item.id} className="table-dark"><Item {...item} /></tr>)}
             </tbody>
         </Table>
     )
