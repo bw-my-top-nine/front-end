@@ -46,7 +46,7 @@ function ItemList(props) {
                 </div>
             </thead>
             <tbody>
-                {props_mockup.items.map(item => <Item key={item.id} {...item} />)}
+                {props_mockup.items.map(item => <tr key={item.id} className="table-dark"><Item {...item} /></tr>)}
             </tbody>
         </Table>
     )

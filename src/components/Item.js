@@ -6,7 +6,7 @@ export default function ItemCard(props) {
 		<div className="container row bg-dark">
 			{props.thumbnail?<img className="col-sm-3" src={props.thumbnail} alt={props.name} />:''}
 			<div className="col-sm-9 text-left">
-				<p>{props.name}</p>
+				<h4>{props.name}</h4>
 			</div>
 		</div>
 	);
