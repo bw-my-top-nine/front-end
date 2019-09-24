@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { axiosWithAuth } from './axiosAuth';
+import { Link } from 'react-router-dom';
 
 const LoginForm = (props) => {
+    console.log(props);
     const [inputValue, setInputValue] = useState({usename: '', password: ''})
     //sets input values from form into inputValue
     const handleChange = e => {
@@ -42,6 +44,9 @@ const LoginForm = (props) => {
                 />
                 <button>Submit</button>
             </form>
+            <div>
+                <Link to='/register-form'>Sign Up!</Link>
+            </div>
         </div>
     )
 }
