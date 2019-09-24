@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from './axiosAuth';
 import { Link } from 'react-router-dom';
+import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 const LoginForm = (props) => {
     console.log(props);
@@ -25,27 +26,33 @@ const LoginForm = (props) => {
     }
     
     return(
-        <div>
-            Login
-            <form onSubmit={handleSubmit}>
-                <input 
-                type='text'
-                name='username'
-                placeholder='Username'
-                value={inputValue.username}
-                onChange={handleChange}
-                />
-                <input
-                type='password'
-                name='password'
-                placeholder='Password'
-                value={inputValue.password}
-                onChange={handleChange}
-                />
-                <button>Submit</button>
-            </form>
+        <div className="col-sm-6 mx-auto">
+            <h4>Log-in</h4>
+            <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Input 
+                    type='text'
+                    name='username'
+                    placeholder='Username'
+                    value={inputValue.username}
+                    onChange={handleChange}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                    type='password'
+                    name='password'
+                    placeholder='Password'
+                    value={inputValue.password}
+                    onChange={handleChange}
+                    />
+                </FormGroup>
+                <FormGroup className="text-left">
+                    <Button>Submit</Button>
+                </FormGroup>
+            </Form>
             <div>
-                <Link to='/register-form'>Sign Up!</Link>
+                <p>Don't have an account? <Link to='/register-form'>Sign Up!</Link></p>
             </div>
         </div>
     )
