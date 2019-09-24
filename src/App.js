@@ -9,6 +9,7 @@ import CreateItem from './components/CreateItem';
 import LoginForm from './components/LoginForm';
 import PrivateRoute from './components/PrivateRoute';
 import ItemList from './components/ItemList';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         {/*<CreateItem />*/}
         <PrivateRoute path='home/profilepage' component={'home/profilepage'} />
         {/*<ItemList />*/}
+        {/* <Home /> */}
       </div>
 
   );
