@@ -13,7 +13,7 @@ import ItemList from './components/ItemList';
 function App() {
   return (
       <div className="App">
-        <Header />
+        {/* <Header /> */}
         <Route exact path='/' render={props => <LoginForm {...props}/>} />
         <Route path ='/register-form' component={RegisterForm} />
         {/*<CreateItem />*/}
