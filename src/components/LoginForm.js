@@ -27,7 +27,7 @@ const LoginForm = (props) => {
     
     return(
         <div className="col-sm-6 mx-auto">
-            <h4>Log-in</h4>
+            <h4 className="mt-2">Log-in</h4>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Input 
