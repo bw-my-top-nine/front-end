@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Table } from 'reactstrap'
 import axios from 'axios'
 
-// import Item from './Item'
+import Item from './Item'
 
 const props_mockup = {
     id: 5,
@@ -46,7 +46,7 @@ function ItemList(props) {
                 </div>
             </thead>
             <tbody>
-                {/* {props_mockup.items.map(item => <Item key={item.id} {...item} />)} */}
+                {props_mockup.items.map(item => <Item key={item.id} {...item} />)}
             </tbody>
         </Table>
     )
