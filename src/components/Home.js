@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Row, Pagination, PaginationItem, PaginationLink, Button } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import axios from 'axios'
-import ItemList from './ItemList';
+
 import { axiosWithAuth } from './axiosAuth';
+import MyLists from './MyLists';
+import CreateCategoryForm from './CreateCategoryForm';
 
 function Home(props) {
 //no props in home    
@@ -38,53 +39,10 @@ function Home(props) {
     //         })
     // },[])
 
-    const props_mockup = {
-        id: 5,
-        name: 'category',
-        description: 'Hello world!',
-        thumbnail: 'https://i.imgur.com/4AiXzf8.jpg',
-        items: [
-            {
-                id: 9,
-                name: 'item1',
-                thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-            },
-            {
-                id: 10,
-                name: 'item2',
-                thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-            }
-        ]
-    }
-
     return (
         <section>
-            <Container>
-                <Row className="justify-content-center align-items-center">
-                    <h2>My Lists</h2>
-                    <Button className="btn-success btn-sm ml-3" tag={Link} to="/CreateCategoryForm">Add New List</Button>
-                    {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
-                </Row>
-                <Row>
-                    {/* {userLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
-                    <div className="col-lg-6"><ItemList {...props_mockup} /></div>
-                </Row>
-                <Pagination className="d-flex justify-content-center">
-                    <PaginationItem>
-                        <PaginationLink className="bg-primary" first href="#" />
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink className="bg-primary" previous href="#" />
-                    </PaginationItem>
-                    {/* to do: map nearby page numbers from current page */}
-                    <PaginationItem>
-                        <PaginationLink className="bg-primary" next href="#" />
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink className="bg-primary" last href="#" />
-                    </PaginationItem>
-                </Pagination>
-            </Container>
+            <Route exact path="/home" render={props=><MyLists {...props} />} /> {/* to do: pass data/handlers from axios/useState */}
+            <Route path="/home/createcategoryform" render={props=><CreateCategoryForm {...props} />} /> {/* to do: pass data/handlers from axios/useState */}
         </section>
     )
 }
