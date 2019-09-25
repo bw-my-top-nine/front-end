@@ -5,7 +5,7 @@ import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 const LoginForm = (props) => {
     console.log(props);
-    const [inputValue, setInputValue] = useState({username: '', password: ''})
+    const [inputValue, setInputValue] = useState({email: '', password: ''})
     //sets input values from form into inputValue
     const handleChange = e => {
         setInputValue({
@@ -31,10 +31,10 @@ const LoginForm = (props) => {
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Input 
-                    type='text'
-                    name='username'
-                    placeholder='Username'
-                    value={inputValue.username}
+                    type='email'
+                    name='email'
+                    placeholder='name@email.com'
+                    value={inputValue.email}
                     onChange={handleChange}
                     required
                     />
