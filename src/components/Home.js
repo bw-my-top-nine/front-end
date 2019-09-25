@@ -6,6 +6,7 @@ import ItemList from './ItemList';
 import { axiosWithAuth } from './axiosAuth';
 
 function Home(props) {
+    localStorage.getItem('userId')
 //no props in home    
     console.log('props in Home', props);
 //for the getData kind of useless rn

@@ -20,6 +20,7 @@ const LoginForm = (props) => {
         .then(res => {
             console.log(res)
             localStorage.setItem('token', res.data.token)
+            localStorage.setItem('userId', res.data.userId)
             props.history.push('/home')
         })
         .catch(err => console.log(err))
