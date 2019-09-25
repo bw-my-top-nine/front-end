@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import { Route } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
+import axios from "axios";
 
-import { axiosWithAuth } from './axiosAuth';
-import MyLists from './MyLists';
-import CreateCategoryForm from './CreateCategoryForm';
+import { axiosWithAuth } from "./axiosAuth";
+import MyLists from "./MyLists";
+import CreateCategory from "./CreateCategoryForm";
 
 function Home(props) {
 //no props in home    
@@ -88,4 +88,4 @@ const saveEdit = (e) => {
     )
 }
 
-export default Home
+export default Home;

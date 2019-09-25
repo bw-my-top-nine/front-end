@@ -1,50 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { Button, Form, FormGroup, Label, Input, FormText, FormFeedback } from 'reactstrap'
-import axios from 'axios'
-import '../bootstrap.min.css'
+import React from "react";
+import { Input } from "reactstrap";
+import "../bootstrap.min.css";
 
 function CreateItem(props) {
+	const name = `name${props.itemNum}`;
+	const image = `image${props.itemNum}`;
 
-    const [item, setItem] = useState({})
-
-    function submitHandler(e) {
-        e.preventDefault()
-        // validation
-            // to do
-        // post
-            // axios.post('backendURL')
-            //     .then(resp => {
-            //         console.log(resp)
-            //         setItem({})
-            //     })
-            //     .catch(err => {
-            //         console.error(err)
-            //     })
-    }
-
-    function changeHandler(e) {
-        setItem({...item, [e.target.name]: e.target.value})
-    }
-
-    return (
-        <Form onSubmit={submitHandler}>
-            <FormGroup>
-                <Label className="text-left">
-                    Name
-                    <Input type="text" name="name" placeholder="Item Name" onChange={changeHandler} value={item.name} />
-                </Label>
-            </FormGroup>
-            <FormGroup>
-                <Label className="text-left">
-                    Category
-                    <Input type="text" name="category" placeholder="Item Category" onChange={changeHandler} value={item.category} />
-                </Label>
-            </FormGroup>
-            <FormGroup>
-                <Button>Submit</Button>
-            </FormGroup>
-        </Form>
-    )
+	return (
+		<>
+			<Input
+				className="bg-primary text-white"
+				type="text"
+				name={name}
+				placeholder={`Item ${props.itemNum}`}
+				onChange={props.handleChanges}
+				value={props.items[name]}
+			/>
+			<Input
+				type="url"
+				name={image}
+				placeholder="Thumbnail image URL (optional)"
+				onChange={props.handleChanges}
+				value={props.items[image]}
+			/>
+		</>
+	);
 }
 
-export default CreateItem
+export default CreateItem;

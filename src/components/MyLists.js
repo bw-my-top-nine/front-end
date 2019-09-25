@@ -1,27 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Row, Button, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+	Container,
+	Row,
+	Button,
+	Pagination,
+	PaginationItem,
+	PaginationLink
+} from "reactstrap";
 
-import ItemList from './ItemList';
+import ItemList from "./ItemList";
 
 const props_mockup = {
-    id: 5,
-    name: 'category',
-    description: 'Hello world!',
-    thumbnail: 'https://i.imgur.com/4AiXzf8.jpg',
-    items: [
-        {
-            id: 9,
-            name: 'item1',
-            thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-        },
-        {
-            id: 10,
-            name: 'item2',
-            thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-        }
-    ]
-}
+	categories: [
+		{
+			id: 5,
+			name: "category",
+			description: "Hello world!",
+			thumbnail: "https://i.imgur.com/4AiXzf8.jpg",
+			items: [
+				{
+					id: 9,
+					name: "item1",
+					thumbnail: "https://i.imgur.com/4AiXzf8.jpg"
+				},
+				{
+					id: 10,
+					name: "item2",
+					thumbnail: "https://i.imgur.com/4AiXzf8.jpg"
+				}
+			]
+		}
+	]
+};
 
 function MyLists(props) {
     return (
@@ -31,8 +42,20 @@ function MyLists(props) {
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
             <Row>
-                {/* {userCategoriesLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
-                <div className="col-lg-6"><ItemList {...props_mockup} /></div>
+                {
+                    props.categories.map(category => {
+                        return (
+                            <div className="col-lg-6">
+                                <ItemList
+                                category={category}
+                                editCategory={props.editCategory}
+                                deleteCategory={props.deleteCategory}
+                                editItems={props.editItems}
+                                />
+                            </div>
+                        )
+                    })
+                }
             </Row>
             <Pagination className="d-flex justify-content-center">
                 <PaginationItem>
@@ -53,4 +76,4 @@ function MyLists(props) {
     )
 }
 
-export default MyLists
+export default MyLists;
