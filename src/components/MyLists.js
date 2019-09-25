@@ -35,8 +35,20 @@ function MyLists(props) {
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
             <Row>
-                {/* {props.categories.map(category=><div className="col-lg-6"><ItemList {...category} /></div>)} */}
-                {props_mockup.categories.map(category=><div className="col-lg-6"><ItemList {...category} /></div>)} {/* setEdit={props.setEdit} userId={props.userId} */}
+                {
+                    props.categories.map(category => {
+                        return (
+                            <div className="col-lg-6">
+                                <ItemList
+                                category={category}
+                                editCategory={props.editCategory}
+                                deleteCategory={props.deleteCategory}
+                                editItems={props.editItems}
+                                />
+                            </div>
+                        )
+                    })
+                }
             </Row>
             <Pagination className="d-flex justify-content-center">
                 <PaginationItem>
