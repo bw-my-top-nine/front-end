@@ -13,7 +13,7 @@ import ItemList from './components/ItemList';
 import CreateCategory from './components/CreateCategoryForm'
 
 function App() {
-	return (
+  return (
     <div className="App">
       <Header />
       <Route exact path='/' render={props => <LoginForm {...props}/>} />

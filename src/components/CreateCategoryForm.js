@@ -43,6 +43,7 @@ const CreateCategory = props => {
 			<FormGroup>
 				<Label htmlFor="title">Category Title</Label>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="title"
 					placeholder="Category"
@@ -53,6 +54,7 @@ const CreateCategory = props => {
 			<FormGroup>
 				<Label htmlFor="title">Top 9 Items</Label>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item1"
 					placeholder="#1"
@@ -60,6 +62,7 @@ const CreateCategory = props => {
 					value={cat.item1}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item2"
 					placeholder="#2"
@@ -67,6 +70,7 @@ const CreateCategory = props => {
 					value={cat.item2}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item3"
 					placeholder="#3"
@@ -74,6 +78,7 @@ const CreateCategory = props => {
 					value={cat.item3}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item4"
 					placeholder="#4"
@@ -81,6 +86,7 @@ const CreateCategory = props => {
 					value={cat.item4}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item5"
 					placeholder="#5"
@@ -88,6 +94,7 @@ const CreateCategory = props => {
 					value={cat.item5}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item6"
 					placeholder="#6"
@@ -95,6 +102,7 @@ const CreateCategory = props => {
 					value={cat.item6}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item7"
 					placeholder="#7"
@@ -102,6 +110,7 @@ const CreateCategory = props => {
 					value={cat.item7}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item8"
 					placeholder="#8"
@@ -109,6 +118,7 @@ const CreateCategory = props => {
 					value={cat.item8}
 				/>
 				<Input
+					className="bg-primary text-white"
 					type="text"
 					name="item9"
 					placeholder="#9"
@@ -116,7 +126,9 @@ const CreateCategory = props => {
 					value={cat.item9}
 				/>
 			</FormGroup>
-			<Button type="submit">Create Top 9 List</Button>
+			<Button className="bg-success" type="submit">
+				Create Top 9 List
+			</Button>
 		</Form>
 	);
 };
