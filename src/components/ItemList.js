@@ -21,7 +21,7 @@ function ItemList(props) {
         <Container className="bg-secondary">
             <Row>
                 {props.thumbnail?<img className="col-sm-3 p-0" src={props.thumbnail} alt={props.name} />:''}
-                <div className="col-sm-9 text-left">
+                <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
                     <div className="d-flex align-items-center">
                         <h3>{props.name}</h3>
                         <Button className="bg-primary btn-sm mx-2">Edit</Button>
