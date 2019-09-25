@@ -20,7 +20,7 @@ function ItemList(props) {
     return (
         <Container className="bg-secondary">
             <Row>
-                {props.thumbnail?<img className="col-sm-3" src={props.thumbnail} alt={props.name} />:''}
+                {props.thumbnail?<img className="col-sm-3 p-0" src={props.thumbnail} alt={props.name} />:''}
                 <div className="col-sm-9 text-left">
                     <div className="d-flex align-items-center">
                         <h3>{props.name}</h3>
