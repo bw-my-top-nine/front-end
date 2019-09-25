@@ -31,7 +31,7 @@ function MyLists(props) {
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
             <Row>
-                {/* {userLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
+                {/* {userCategoriesLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
                 <div className="col-lg-6"><ItemList {...props_mockup} /></div>
             </Row>
             <Pagination className="d-flex justify-content-center">
