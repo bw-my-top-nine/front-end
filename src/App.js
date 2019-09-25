@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import RegisterForm from "./components/RegisterForm";
 import CreateItem from "./components/CreateItem";
+import CreateItems from "./components/CreateItemForm";
 import LoginForm from "./components/LoginForm";
 import PrivateRoute from "./components/PrivateRoute";
 import ItemList from "./components/ItemList";

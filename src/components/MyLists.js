@@ -1,31 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Container, Row, Button, Pagination, PaginationItem, PaginationLink } from 'reactstrap'
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+	Container,
+	Row,
+	Button,
+	Pagination,
+	PaginationItem,
+	PaginationLink
+} from "reactstrap";
 
-import ItemList from './ItemList';
+import ItemList from "./ItemList";
 
 const props_mockup = {
-    categories: [
-        {
-            id: 5,
-            name: 'category',
-            description: 'Hello world!',
-            thumbnail: 'https://i.imgur.com/4AiXzf8.jpg',
-            items: [
-                {
-                    id: 9,
-                    name: 'item1',
-                    thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-                },
-                {
-                    id: 10,
-                    name: 'item2',
-                    thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-                }
-            ]
-        }
-    ]
-}
+	categories: [
+		{
+			id: 5,
+			name: "category",
+			description: "Hello world!",
+			thumbnail: "https://i.imgur.com/4AiXzf8.jpg",
+			items: [
+				{
+					id: 9,
+					name: "item1",
+					thumbnail: "https://i.imgur.com/4AiXzf8.jpg"
+				},
+				{
+					id: 10,
+					name: "item2",
+					thumbnail: "https://i.imgur.com/4AiXzf8.jpg"
+				}
+			]
+		}
+	]
+};
 
 function MyLists(props) {
     return (
@@ -69,4 +76,4 @@ function MyLists(props) {
     )
 }
 
-export default MyLists
+export default MyLists;
