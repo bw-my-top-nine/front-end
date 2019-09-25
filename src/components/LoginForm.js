@@ -5,7 +5,7 @@ import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 const LoginForm = (props) => {
     console.log(props);
-    const [inputValue, setInputValue] = useState({usename: '', password: ''})
+    const [inputValue, setInputValue] = useState({username: '', password: ''})
     //sets input values from form into inputValue
     const handleChange = e => {
         setInputValue({
@@ -27,7 +27,7 @@ const LoginForm = (props) => {
     
     return(
         <div className="col-sm-6 mx-auto">
-            <h4 className="mt-2">Log-in</h4>
+            <h4>Log-in</h4>
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Input 
@@ -36,6 +36,7 @@ const LoginForm = (props) => {
                     placeholder='Username'
                     value={inputValue.username}
                     onChange={handleChange}
+                    required
                     />
                 </FormGroup>
                 <FormGroup>
@@ -45,10 +46,13 @@ const LoginForm = (props) => {
                     placeholder='Password'
                     value={inputValue.password}
                     onChange={handleChange}
+                    pattern="[^\s]{6,}"
+                    title="Password must be at least 6 non-space characters"
+                    required
                     />
                 </FormGroup>
                 <FormGroup className="text-left">
-                    <Button>Submit</Button>
+                    <Button className="bg-primary">Submit</Button>
                 </FormGroup>
             </Form>
             <div>

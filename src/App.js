@@ -15,13 +15,13 @@ import CreateCategory from './components/CreateCategoryForm'
 function App() {
 	return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       <Route exact path='/' render={props => <LoginForm {...props}/>} />
       <Route path ='/register-form' component={RegisterForm} />
       {/*<CreateItem />*/}
       <PrivateRoute path='/home' component={Home} />
       {/*<ItemList />*/}
-      <Route path ='/CreateCategoryForm' component={CreateCategory} />
+      <PrivateRoute path='/CreateCategoryForm' component={CreateCategory} />
     </div>
   );
 
