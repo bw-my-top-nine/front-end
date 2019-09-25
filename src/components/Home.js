@@ -64,7 +64,6 @@ function Home(props) {
                 <Row className="justify-content-center align-items-center">
                     <h2>My Lists</h2>
                     <Button className="btn-success btn-sm ml-3" tag={Link} to="/CreateCategoryForm">Add New List</Button>
-                    {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
                 </Row>
                 <Row>
                     {/* {userLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}

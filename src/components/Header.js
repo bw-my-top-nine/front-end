@@ -7,8 +7,14 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap'
+import { withRouter } from 'react-router-dom';
 
 function Header(props) {
+//logs you out, by clearing local storage of token and pushing you to login page currently don't have props
+    const handleLogOut = () => {
+        localStorage.removeItem('token')
+        props.history.push('/')
+    }
     return (
         <Navbar className="navbar-dark bg-dark mb-2">
             <NavbarBrand tag={Link} to="/home">My Top Nine</NavbarBrand>
@@ -21,8 +27,9 @@ function Header(props) {
                 </NavItem>
             </Nav> */}
             {/* logged in user stuff ? */}
+            <button onClick={handleLogOut}>Log Out</button>
         </Navbar>
     )
 }
 
-export default Header
+export default withRouter(Header)
