@@ -7,11 +7,10 @@ import MyLists from './MyLists';
 import CreateCategoryForm from './CreateCategoryForm';
 
 function Home(props) {
-    localStorage.getItem('userId')
 //no props in home    
     console.log('props in Home', props);
 //for the getData kind of useless rn
-//    const [users, setUsers] = useState()
+    const [userId, setUserId] = useState(localStorage.getItem('userId'))
     const [userLists, setUserLists] = useState([])
 //Axios call to get UserList, kind of useless a.t.m
 //    const getData = () => {
@@ -30,15 +29,16 @@ function Home(props) {
 //    }
 
     // Not sure if called here or parent...
-    // useEffect(()=>{
-    //     axios.get('backend-url')
-    //         .then(resp=>{
-    //             console.log(resp)
-    //         })
-    //         .catch(err=>{
-    //             console.error(err)
-    //         })
-    // },[])
+    useEffect(()=>{
+        axios.get(`https://top-nine.herokuapp.com/api/categories/${userId}/categories`)
+            .then(resp=>{
+                console.log(resp)
+                setUserLists(resp.data)
+            })
+            .catch(err=>{
+                console.error(err)
+            })
+    },[])
 
     return (
         <section>
