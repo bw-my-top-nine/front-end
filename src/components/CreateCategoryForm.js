@@ -63,7 +63,18 @@ const CreateCategory = props => {
 	};
 
 	useEffect(()=>{
-		// setCat(props.edit)
+		if (props.edit) {
+			let temp = {
+				title: props.edit.name,
+				catImage: props.edit.thumbnail,
+				desc: props.edit.description,
+			}
+			props.edit.items.forEach((item, index) => {
+				temp[`item${index+1}`] = item.name
+				temp[`image${index+1}`] = item.thumbnail
+			})
+			setCat(temp)
+		}
 	},[props])
 
 	return (

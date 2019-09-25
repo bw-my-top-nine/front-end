@@ -25,9 +25,15 @@ function Home(props) {
 //    }
 
     function handleSubmit(category) {
-        setEdit()
-        // axios post category
-        // axios post items
+        if (edit) {
+            // axios put category
+            // axios put items
+            setEdit()
+        }
+        else {
+            // axios post category
+            // axios post items
+        }
         props.history.push("/home")
     }
 
