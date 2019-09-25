@@ -17,7 +17,7 @@ const RegisterForm = (props) => {
         console.log('Props inside Submit', props)
         axios.post('https://top-nine.herokuapp.com/api/authentication/register', credentials)
         .then(res => {
-            console.log(res.data)
+            console.log(res)
             props.history.push('/')
         })
         .catch(err => console.log(err))

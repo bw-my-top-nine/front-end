@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 const LoginForm = (props) => {
-    console.log(props);
+    console.log('in loginForm', props);
     const [inputValue, setInputValue] = useState({email: '', password: ''})
     //sets input values from form into inputValue
     const handleChange = e => {
