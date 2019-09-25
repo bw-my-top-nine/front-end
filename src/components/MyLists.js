@@ -11,29 +11,6 @@ import {
 
 import ItemList from "./ItemList";
 
-const props_mockup = {
-	categories: [
-		{
-			id: 5,
-			name: "category",
-			description: "Hello world!",
-			thumbnail: "https://i.imgur.com/4AiXzf8.jpg",
-			items: [
-				{
-					id: 9,
-					name: "item1",
-					thumbnail: "https://i.imgur.com/4AiXzf8.jpg"
-				},
-				{
-					id: 10,
-					name: "item2",
-					thumbnail: "https://i.imgur.com/4AiXzf8.jpg"
-				}
-			]
-		}
-	]
-};
-
 function MyLists(props) {
     return (
         <Container>
@@ -48,9 +25,8 @@ function MyLists(props) {
                             <div className="col-lg-6">
                                 <ItemList
                                 category={category}
-                                editCategory={props.editCategory}
-                                deleteCategory={props.deleteCategory}
-                                editItems={props.editItems}
+                                editCategory={props.setEditCategory}
+                                editItems={props.setEditItems}
                                 />
                             </div>
                         )

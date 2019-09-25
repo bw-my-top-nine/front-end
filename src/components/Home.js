@@ -5,26 +5,16 @@ import axios from "axios";
 import { axiosWithAuth } from "./axiosAuth";
 import MyLists from "./MyLists";
 import CreateCategory from "./CreateCategoryForm";
+import CreateItemForm from "./CreateItemForm";
 
 function Home(props) {
 //no props in home    
     console.log('props in Home', props);
     const userId = localStorage.getItem('userId')
 //for the getData kind of useless rn
-    const [edit, setEdit] = useState()
+	const [editCategory, setEditCategory] = useState()
+	const [editItems, setEditItems] = useState()
     const [userLists, setUserLists] = useState([])
-//Axios call to get UserList, kind of useless a.t.m
-//could use it to rerender something after updating serverdata? 
-//    const getData = () => {
-//        axiosWithAuth().get('/users')
-//        .then(res => {
-//            console.log(res)
-//            setUsers(res.data)
-//        })
-//        .catch(err => console.log(err))
-//    }
-
-    // Not sure if called here or parent...
 
 //1. axios call to get categories    
     useEffect(()=>{
@@ -38,20 +28,12 @@ function Home(props) {
             })
     },[])
 
-//2. post request to post categories
-    const createCategory = () => {
-        axios.post('https://top-nine.herokuapp.com/api/categories/:id/categories')
-        .then(resp => {
-            console.log(resp)
-            props.history.push('/home')
-        })
-    }
 //3. axios call to get items
     const getItems = () => {
         axios.get('https://top-nine.herokuapp.com/api/items')
         .then(resp => {
             console.log(resp)
-            setItemlist(resp.data)
+            //setItemlist(resp.data)
         })
     }
 
@@ -67,7 +49,7 @@ const addItem = () => {
 //5. put request to edit category
 const saveEdit = (e) => {
     //takes in updatedcategory
-    axios.put('https://top-nine.herokuapp.com/api/items/:id', newitemlist)
+    axios.put('https://top-nine.herokuapp.com/api/items/:id')
     .then(res => {
         console.log(res)
         props.history.push('/home')
@@ -75,15 +57,18 @@ const saveEdit = (e) => {
     
 }
 //7. deleting category 
+	// moved to ItemList.js
+
 //6. editing items
     const editItem = () => {
-        axios.put
+        axios.put('https://top-nine.herokuapp.com/api/items/:id')
     }
 
     return (
         <section>
-            <Route exact path="/home" render={props=><MyLists {...props} />} /> {/* to do: pass data/handlers from axios/useState */}
-            <Route path="/home/createcategoryform" render={props=><CreateCategoryForm {...props} />} /> {/* to do: pass data/handlers from axios/useState */}
+            <Route exact path="/home" render={props=><MyLists {...props} categories={userLists} setEditCategory={setEditCategory} setEditItems={setEditItems} />} /> {/* to do: pass data/handlers from axios/useState */}
+			<Route path="/home/createcategoryform" render={props=><CreateCategory {...props} userId={userId} edit={editCategory} setEdit={setEditCategory} />} /> {/* to do: pass data/handlers from axios/useState */}
+			<Route path="/home/createItemForm" render={props=><CreateItemForm {...props} userId={userId} edit={editItems} setEdit={setEditItems}/>} /> {/* to do: pass data/handlers from axios/useState */}
         </section>
     )
 }
