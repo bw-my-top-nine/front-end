@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const RegisterForm = (props) => {
     console.log(props)
-    const [credentials, setCredentials] = useState({username: '', password: ''})
+    const [credentials, setCredentials] = useState({email: '', password: ''})
     const handleChange = e => {
         setCredentials({
             ...credentials,
@@ -28,10 +28,10 @@ const RegisterForm = (props) => {
             <form onSubmit={handleSubmit}>
                 Name
                 <input 
-                type='text'
-                name='username'
-                placeholder='Username'
-                value={credentials.username}
+                type='email'
+                name='email'
+                placeholder='name@email.com'
+                value={credentials.email}
                 onChange={handleChange}
                 />
                 Password
@@ -42,14 +42,6 @@ const RegisterForm = (props) => {
                 value={credentials.password}
                 onChange={handleChange}
                 />
-                {/*Email
-                <input
-                type='email'
-                name='email'
-                placeholder='name@email.com'
-                value={credentials.email}
-                onChange={handleChange}
-                />*/}
                 <button>Submit</button>
             </form>
         </div>
