@@ -24,6 +24,13 @@ function Home(props) {
 //        .catch(err => console.log(err))
 //    }
 
+    function handleSubmit(category) {
+        setEdit()
+        // axios post category
+        // axios post items
+        props.history.push("/home")
+    }
+
     // Not sure if called here or parent...
     useEffect(()=>{
         axios.get(`https://top-nine.herokuapp.com/api/categories/${userId}/categories`)
@@ -38,8 +45,8 @@ function Home(props) {
 
     return (
         <section>
-            <Route exact path="/home" render={props=><MyLists {...props} />} /> {/* to do: pass data/handlers from axios/useState */}
-            <Route path="/home/createcategoryform" render={props=><CreateCategoryForm {...props} />} /> {/* to do: pass data/handlers from axios/useState */}
+            <Route exact path="/home" render={props=><MyLists {...props} categories={userLists} setEdit={setEdit} userId={userId} />} /> {/* to do: pass data/handlers from axios/useState */}
+            <Route path="/home/createcategoryform" render={props=><CreateCategoryForm {...props} edit={edit} handleSubmit={handleSubmit} />} /> {/* to do: pass data/handlers from axios/useState */}
         </section>
     )
 }

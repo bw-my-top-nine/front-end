@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import CreateItem from "./CreateItem";
@@ -61,6 +61,10 @@ const CreateCategory = props => {
 		});
 		console.log(event.target.value);
 	};
+
+	useEffect(()=>{
+		// setCat(props.edit)
+	},[props])
 
 	return (
 		<Form onSubmit={submitForm}>
