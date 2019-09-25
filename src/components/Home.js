@@ -46,7 +46,7 @@ function Home(props) {
                 <Row>
                     {/* {userLists.map(list=><div className="col-sm-4"><ItemList {...list} /></div>)} */}
                 </Row>
-                <Pagination>
+                <Pagination className="d-flex justify-content-center">
                     <PaginationItem>
                         <PaginationLink className="bg-primary" first href="#" />
                     </PaginationItem>
