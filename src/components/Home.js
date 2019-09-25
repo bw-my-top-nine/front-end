@@ -38,13 +38,33 @@ function Home(props) {
     //         })
     // },[])
 
+    const props_mockup = {
+        id: 5,
+        name: 'category',
+        description: 'Hello world!',
+        thumbnail: 'https://i.imgur.com/4AiXzf8.jpg',
+        items: [
+            {
+                id: 9,
+                name: 'item1',
+                thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
+            },
+            {
+                id: 10,
+                name: 'item2',
+                thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
+            }
+        ]
+    }
+
     return (
         <section>
             <h2>My Lists <Button className="btn-success" tag={Link} to="/CreateCategoryForm">Create a New List</Button></h2>
             <Container>
     {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
                 <Row>
-                    {/* {userLists.map(list=><div className="col-sm-4"><ItemList {...list} /></div>)} */}
+                    {/* {userLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
+                    <div className="col-lg-6"><ItemList {...props_mockup} /></div>
                 </Row>
                 <Pagination className="d-flex justify-content-center">
                     <PaginationItem>
