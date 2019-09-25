@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import axios from "axios";
 
 const CreateCategory = props => {
-	console.log(props);
+	console.log('props in Cat', props.userId);
 	const [cat, setCat] = useState({
-		title: "",
-		catImage: "",
-		desc: ""
+		name: "",
+		thumbnail: "",
+		description: ""
 	});
 	const handleChanges = event => {
 		setCat({ ...cat, [event.target.name]: event.target.value });
-		console.log(cat);
+		console.log('in catChange', cat);
 	};
-	const submitForm = event => {
-		event.preventDefault();
-		//axios call through either back end or parent
-		console.log(props);
-		setCat({
-			title: "",
-			catImage: "",
-			desc: ""
-		});
-		console.log(event.target.value);
-	};
-
-	useEffect(() => {
-		// setCat(props.edit)
-	}, [props]);
-
+	const submitForm = (e) => {
+		e.preventDefault();
+		axios.post(`https://top-nine.herokuapp.com/api/categories/${props.userId}/categories`, cat) // id is ${props.userId}, not ":id"
+		.then(resp => {
+			console.log('this is in CatForm', resp);
+			setCat({
+			name: "",
+			thumbnail: "",
+			description: ""
+			});
+			props.history.push('/home')
+		})
+		.catch(err => console.log(err))
+	}
 	return (
 		<Form onSubmit={submitForm}>
 			<FormGroup>
@@ -36,28 +35,28 @@ const CreateCategory = props => {
 				<Input
 					className="bg-primary text-white "
 					type="text"
-					name="title"
+					name="name"
 					placeholder="Category"
 					onChange={handleChanges}
-					value={cat.title}
+					value={cat.name}
 				/>
 				<Input
 					type="text"
-					name="catImage"
+					name="thumbnail"
 					placeholder="enter optional image URL"
 					onChange={handleChanges}
-					value={cat.catImage}
+					value={cat.thumbnail}
 				/>
 				<Label for="desc1"></Label>
 				<Input
 					type="text"
-					name="desc"
+					name="description"
 					placeholder="enter optional description"
 					onChange={handleChanges}
-					value={cat.desc}
+					value={cat.description}
 				/>
 			</FormGroup>
-			<Button className="bg-success" type="submit" tag={Link} to="/home">
+			<Button className="bg-success" type="submit">
 				Create Top 9 Category
 			</Button>
 		</Form>

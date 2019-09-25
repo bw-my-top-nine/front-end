@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import CreateItem from "./CreateItem";
+import axios from "axios";
 
 const CreateItems = props => {
 	console.log(props);
@@ -29,10 +30,20 @@ const CreateItems = props => {
 		setItems({ ...items, [event.target.name]: event.target.value });
 		console.log(items);
 	};
-	const submitForm = event => {
-		event.preventDefault();
-		//axios call through either back end or parent
-		console.log(props);
+	const submitForm = () => {
+		let data = []
+		for (let key of Object.keys(items)) {
+			let index = Number(key.slice(-1)) - 1
+			if (!data[index]) data[index] = {}
+			data[index][/item/.test(key)?'name':'thumbnail'] = items[key]
+		}
+		data.forEach(item => {
+			axios.post(`https://top-nine.herokuapp.com/api/items/${props.userId}/items`, item)
+				.then(resp => {
+					console.log(resp)
+				})
+				.catch(console.error)
+		})
 		setItems({
 			item1: "",
 			image1: "",
@@ -53,26 +64,24 @@ const CreateItems = props => {
 			item9: "",
 			image9: ""
 		});
-		console.log(event.target.value);
-	};
-
+		props.history.push('/home')
+	}
 	useEffect(() => {
-		// setItems(props.edit)
+		if (props.edit) {
+			let temp = {}
+			props.edit.forEach((item, index) => {
+				temp[`item${index+1}`] = item.name
+				temp[`image${index+1}`] = item.thumbnail
+			})
+			setItems(temp)
+		}
 	}, [props]);
 
 	return (
 		<Form onSubmit={submitForm}>
 			<FormGroup>
 				<Label htmlFor="title">Top 9 Items</Label>
-				<CreateItem itemNum="1" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="2" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="3" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="4" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="5" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="6" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="7" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="8" handleChanges={handleChanges} items={items} />
-				<CreateItem itemNum="9" handleChanges={handleChanges} items={items} />
+				{[1,2,3,4,5,6,7,8,9].map(num=><CreateItem key={num} itemNum={num} handleChanges={handleChanges} items={items} />)}
 			</FormGroup>
 			<Button className="bg-success" type="submit" tag={Link} to="/home">
 				Add Your List Items
