@@ -10,9 +10,11 @@ function Home(props) {
 //no props in home    
     console.log('props in Home', props);
 //for the getData kind of useless rn
+    const [edit, setEdit] = useState()
     const [userId, setUserId] = useState(localStorage.getItem('userId'))
     const [userLists, setUserLists] = useState([])
 //Axios call to get UserList, kind of useless a.t.m
+//could use it to rerender something after updating serverdata? 
 //    const getData = () => {
 //        axiosWithAuth().get('/users')
 //        .then(res => {
@@ -20,12 +22,6 @@ function Home(props) {
 //            setUsers(res.data)
 //        })
 //        .catch(err => console.log(err))
-//    }
-//logs you out, by clearing local storage of token and pushing you to login page currently don't have props
-//    const handleLogOut = () => {
-//        getData();
-//        localStorage.removeItem('token')
-//        props.history.push('/')
 //    }
 
     // Not sure if called here or parent...
