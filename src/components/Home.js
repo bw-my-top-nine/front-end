@@ -40,25 +40,25 @@ function Home(props) {
 
     return (
         <section>
-            <h2>My Lists <Button className="bg-success" tag={Link} to="/CreateCategoryForm">Create a New List</Button></h2>
+            <h2>My Lists <Button className="btn-success" tag={Link} to="/CreateCategoryForm">Create a New List</Button></h2>
             <Container>
     {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
                 <Row>
-                    {/* {userLists.map(list=><div className="col-sm-3"><ItemList {...list} /></div>)} */}
+                    {/* {userLists.map(list=><div className="col-sm-4"><ItemList {...list} /></div>)} */}
                 </Row>
                 <Pagination>
                     <PaginationItem>
-                        <PaginationLink className="bg-secondary" first href="#" />
+                        <PaginationLink className="bg-primary" first href="#" />
                     </PaginationItem>
                     <PaginationItem>
-                        <PaginationLink className="bg-secondary" previous href="#" />
+                        <PaginationLink className="bg-primary" previous href="#" />
                     </PaginationItem>
                     {/* to do: map nearby page numbers from current page */}
                     <PaginationItem>
-                        <PaginationLink className="bg-secondary" next href="#" />
+                        <PaginationLink className="bg-primary" next href="#" />
                     </PaginationItem>
                     <PaginationItem>
-                        <PaginationLink className="bg-secondary" last href="#" />
+                        <PaginationLink className="bg-primary" last href="#" />
                     </PaginationItem>
                 </Pagination>
             </Container>
