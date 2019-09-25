@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const CreateCategory = props => {
@@ -226,7 +227,7 @@ const CreateCategory = props => {
 					value={cat.image9}
 				/>
 			</FormGroup>
-			<Button className="bg-success" type="submit">
+			<Button className="bg-success" type="submit" tag={Link} to="/home">
 				Create Top 9 List
 			</Button>
 		</Form>
