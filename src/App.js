@@ -21,7 +21,7 @@ function App() {
 			{/*<CreateItem />*/}
 			<PrivateRoute path="/home" component={Home} />
 			{/*<ItemList />*/}
-			<PrivateRoute path="/CreateCategoryForm" component={CreateCategory} />
+			{/* <PrivateRoute path="/CreateCategoryForm" component={CreateCategory} /> */}
 		</div>
 	);
 }
