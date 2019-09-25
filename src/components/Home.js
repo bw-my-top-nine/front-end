@@ -7,6 +7,7 @@ import MyLists from './MyLists';
 import CreateCategoryForm from './CreateCategoryForm';
 
 function Home(props) {
+    localStorage.getItem('userId')
 //no props in home    
     console.log('props in Home', props);
 //for the getData kind of useless rn
