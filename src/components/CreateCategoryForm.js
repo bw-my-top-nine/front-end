@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import CreateItem from "./CreateItem";
 
 const CreateCategory = props => {
 	console.log(props);
@@ -90,141 +91,15 @@ const CreateCategory = props => {
 			</FormGroup>
 			<FormGroup>
 				<Label htmlFor="title">Top 9 Items</Label>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item1"
-					placeholder="#1"
-					onChange={handleChanges}
-					value={cat.item1}
-				/>
-				<Input
-					type="text"
-					name="image1"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image1}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item2"
-					placeholder="#2"
-					onChange={handleChanges}
-					value={cat.item2}
-				/>
-				<Input
-					type="text"
-					name="image2"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image2}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item3"
-					placeholder="#3"
-					onChange={handleChanges}
-					value={cat.item3}
-				/>
-				<Input
-					type="text"
-					name="image3"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image3}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item4"
-					placeholder="#4"
-					onChange={handleChanges}
-					value={cat.item4}
-				/>
-				<Input
-					type="text"
-					name="image4"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image4}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item5"
-					placeholder="#5"
-					onChange={handleChanges}
-					value={cat.item5}
-				/>
-				<Input
-					type="text"
-					name="image5"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image5}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item6"
-					placeholder="#6"
-					onChange={handleChanges}
-					value={cat.item6}
-				/>
-				<Input
-					type="text"
-					name="image6"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image6}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item7"
-					placeholder="#7"
-					onChange={handleChanges}
-					value={cat.item7}
-				/>
-				<Input
-					type="text"
-					name="image7"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image7}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item8"
-					placeholder="#8"
-					onChange={handleChanges}
-					value={cat.item8}
-				/>
-				<Input
-					type="text"
-					name="image8"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image8}
-				/>
-				<Input
-					className="bg-primary text-white"
-					type="text"
-					name="item9"
-					placeholder="#9"
-					onChange={handleChanges}
-					value={cat.item9}
-				/>
-				<Input
-					type="text"
-					name="image9"
-					placeholder="enter optional image URL"
-					onChange={handleChanges}
-					value={cat.image9}
-				/>
+				<CreateItem itemNum="1" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="2" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="3" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="4" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="5" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="6" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="7" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="8" handleChanges={handleChanges} cat={cat} />
+				<CreateItem itemNum="9" handleChanges={handleChanges} cat={cat} />
 			</FormGroup>
 			<Button className="bg-success" type="submit">
 				Create Top 9 List
