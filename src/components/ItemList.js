@@ -22,11 +22,11 @@ function ItemList(props) {
             <Row>
                 {props.thumbnail?<img className="col-sm-3" src={props.thumbnail} alt={props.name} />:''}
                 <div className="col-sm-9 text-left">
-                    <h3>
-                        {props.name}
-                        <Button className="bg-primary mx-2">Edit</Button>
-                        <Button className="btn-danger">Delete</Button>
-                    </h3>
+                    <div className="d-flex align-items-center">
+                        <h3>{props.name}</h3>
+                        <Button className="bg-primary btn-sm mx-2">Edit</Button>
+                        <Button className="btn-danger btn-sm">Delete</Button>
+                    </div>
                     {props.description?<p>{props.description}</p>:''}
                 </div>
             </Row>

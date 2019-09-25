@@ -59,9 +59,12 @@ function Home(props) {
 
     return (
         <section>
-            <h2>My Lists <Button className="btn-success" tag={Link} to="/CreateCategoryForm">Create a New List</Button></h2>
             <Container>
-    {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
+                <Row className="justify-content-center align-items-center">
+                    <h2>My Lists</h2>
+                    <Button className="btn-success btn-sm ml-3" tag={Link} to="/CreateCategoryForm">Add New List</Button>
+                    {/*<button onClick={handleLogOut}>Log Out Yourself!</button>*/}
+                </Row>
                 <Row>
                     {/* {userLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
                     <div className="col-lg-6"><ItemList {...props_mockup} /></div>
