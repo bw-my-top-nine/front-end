@@ -5,20 +5,24 @@ import { Container, Row, Button, Pagination, PaginationItem, PaginationLink } fr
 import ItemList from './ItemList';
 
 const props_mockup = {
-    id: 5,
-    name: 'category',
-    description: 'Hello world!',
-    thumbnail: 'https://i.imgur.com/4AiXzf8.jpg',
-    items: [
+    categories: [
         {
-            id: 9,
-            name: 'item1',
-            thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
-        },
-        {
-            id: 10,
-            name: 'item2',
-            thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
+            id: 5,
+            name: 'category',
+            description: 'Hello world!',
+            thumbnail: 'https://i.imgur.com/4AiXzf8.jpg',
+            items: [
+                {
+                    id: 9,
+                    name: 'item1',
+                    thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
+                },
+                {
+                    id: 10,
+                    name: 'item2',
+                    thumbnail: 'https://i.imgur.com/4AiXzf8.jpg'
+                }
+            ]
         }
     ]
 }
@@ -31,8 +35,8 @@ function MyLists(props) {
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
             <Row>
-                {/* {userCategoriesLists.map(list=><div className="col-lg-6"><ItemList {...list} /></div>)} */}
-                <div className="col-lg-6"><ItemList {...props_mockup} /></div>
+                {/* {props.categories.map(category=><div className="col-lg-6"><ItemList {...category} /></div>)} */}
+                {props_mockup.categories.map(category=><div className="col-lg-6"><ItemList {...category} /></div>)} {/* setEdit={props.setEdit} userId={props.userId} */}
             </Row>
             <Pagination className="d-flex justify-content-center">
                 <PaginationItem>
