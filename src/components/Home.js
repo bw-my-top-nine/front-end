@@ -15,42 +15,6 @@ function Home(props) {
 //for the getData kind of useless rn
 	const [editCategory, setEditCategory] = useState()
     const [editItems, setEditItems] = useState()
-    //gets set in Search.js and passed down in MyList
-    const [searched, setSearched] = useState()
-    // const [userLists, setUserLists] = useState([])
-
-//1. axios call to get categories    
-    // moved to MyLists.js
-
-//3. axios call to get items
-    // moved to ItemList.js
-
-
-//4. post request to post items
-const addItem = () => {
-    //takes in itemList
-    axios.post('https://top-nine.herokuapp.com/api/items/:id/items')
-    .then(resp => {
-        props.history.push('')
-    })
-}
-//5. put request to edit category
-const saveEdit = (e) => {
-    //takes in updatedcategory
-    axios.put('https://top-nine.herokuapp.com/api/items/:id')
-    .then(res => {
-        console.log(res)
-        props.history.push('/home')
-    })
-    
-}
-//7. deleting category 
-	// moved to ItemList.js
-
-//6. editing items
-    const editItem = () => {
-        axios.put('https://top-nine.herokuapp.com/api/items/:id')
-    }
 
     return (
         <section>
