@@ -84,7 +84,7 @@ const CreateItems = props => {
 
 	return (
 		<div className="col-sm-6 mx-auto">
-			<h4>Top 9 Items</h4>
+			<h3>Top 9 Items</h3>
 			<Form onSubmit={submitForm}>
 				<FormGroup>
 					{[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (

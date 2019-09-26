@@ -69,7 +69,7 @@ const CreateCategory = props => {
 
 	return (
 		<div className="col-sm-6 mx-auto">
-			<h4>Create Your Category</h4>
+			<h3>Create Your Category</h3>
 			<Form onSubmit={submitForm}>
 				<FormGroup>
 					<Input
