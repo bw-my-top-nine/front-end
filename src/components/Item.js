@@ -9,13 +9,13 @@ export default function ItemCard(props) {
 		axios.delete(`https://top-nine.herokuapp.com/api/items/${props.item.id}`)
 			.then(resp => {
 				console.log(resp)
-				setDeleted(true)
+				props.setItems(props.items.filter(item => item != props.item))
 			})
 			.catch(console.error)
 	}
 
 	return (
-		<Row className="bg-dark" hidden={deleted}>
+		<Row className="bg-dark">
 			{props.item.thumbnail?<img className="col-sm-3 p-0" src={props.item.thumbnail} alt={props.item.name} />:''}
 			<div className="col-sm-9 d-flex align-items-center justify-content-center justify-content-sm-start">
 				<h4>{props.item.name}</h4>
