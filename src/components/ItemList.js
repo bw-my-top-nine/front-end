@@ -23,7 +23,7 @@ function ItemList(props) {
     }, [])
 
     return (
-        <Container className="bg-secondary" hidden={deleted ?true:false}>
+        <Container className="bg-secondary" hidden={deleted?true:false}>
             <Row>
                 {props.category.thumbnail?<img className="col-sm-3 p-0" src={props.category.thumbnail} alt={props.name} />:''}
                 <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
@@ -65,7 +65,6 @@ function ItemList(props) {
                 </div>
             </Row>
             {items.map(item => <Item key={item.id} item={item} {...props} />)}
-            {/* <Search /> */}
         </Container>
     )
 }
