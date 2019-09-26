@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
 	Container,
@@ -8,15 +8,28 @@ import {
 	PaginationItem,
 	PaginationLink
 } from "reactstrap";
+import axios from "axios";
 
 import ItemList from "./ItemList";
 
 function MyLists(props) {
-    // not sure if this is necessary
+    const [categories, setCategories] = useState([])
+
     useEffect(()=>{
+        // not sure if this is necessary
         // clear edit status if navigated back to home without submitting
         props.setEditCategory()
         props.setEditItems()
+        
+        // moved to trigger only on /home not /home/createCategoryForm
+        axios.get(`https://top-nine.herokuapp.com/api/categories/${props.userId}/categories`)
+            .then(resp=>{
+                console.log(resp)
+                setCategories(resp.data)
+            })
+            .catch(err=>{
+                console.error(err)
+            })
     },[])
 
     return (
@@ -27,7 +40,7 @@ function MyLists(props) {
             </Row>
             <Row>
                 {
-                    props.categories.map(category => {
+                    categories.map(category => {
                         return (
                             <div className="col-lg-6" key={category.id}>
                                 <ItemList
