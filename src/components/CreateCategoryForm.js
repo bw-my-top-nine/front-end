@@ -72,7 +72,7 @@ const CreateCategory = props => {
 
 	return (
 		<div className="col-sm-6 mx-auto">
-			<h3>Create Your Category</h3>
+			<h4>Create Your Category</h4>
 			<Form onSubmit={submitForm}>
 				<FormGroup>
 					<Input
@@ -83,6 +83,8 @@ const CreateCategory = props => {
 						onChange={handleChanges}
 						value={cat.name}
 					/>
+				</FormGroup>
+				<FormGroup>
 					<Input
 						type="text"
 						name="thumbnail"
@@ -90,7 +92,8 @@ const CreateCategory = props => {
 						onChange={handleChanges}
 						value={cat.thumbnail}
 					/>
-					<Label for="desc1"></Label>
+				</FormGroup>
+				<FormGroup>
 					<Input
 						type="text"
 						name="description"
