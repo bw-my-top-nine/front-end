@@ -38,6 +38,7 @@ const RegisterForm = props => {
 						placeholder="name@email.com"
 						value={credentials.email}
 						onChange={handleChange}
+						required
 					/>
 				</FormGroup>
 				<FormGroup>
@@ -47,6 +48,9 @@ const RegisterForm = props => {
 						placeholder="Password"
 						value={credentials.password}
 						onChange={handleChange}
+						pattern="[^\s]{6,}"
+                    	title="Password must be at least 6 non-space characters"
+						required
 					/>
 				</FormGroup>
 				<FormGroup className="text-left">
