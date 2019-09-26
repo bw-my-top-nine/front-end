@@ -9,12 +9,13 @@ function CreateItem(props) {
 	return (
 		<FormGroup>
 			<Input
-				className="bg-primary text-white"
+				// className="bg-primary text-white"
 				type="text"
 				name={name}
 				placeholder={`Item ${props.itemNum}`}
 				onChange={props.handleChanges}
 				value={props.items[name]}
+				required
 			/>
 			<Input
 				type="url"
