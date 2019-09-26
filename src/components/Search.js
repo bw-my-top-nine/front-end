@@ -28,8 +28,8 @@ const Search = (props) => {
                 type='text'
                 name='name'
                 placeholder='Search'
-                value={searchValue.name}
-                onChange={handleSearch}
+                // value={searchValue.name}
+                onChange={(e)=>{props.setSearch(e.target.value)}}
                 />
                 <button>Search</button>
             </form>
