@@ -20,7 +20,7 @@ const CreateCategory = props => {
 		e.preventDefault();
 		const data = { ...cat }
 		if (!data.thumbnail) delete data.thumbnail
-		if (!data.description) delete data.description
+		// if (!data.description) delete data.description
 		if (props.edit && props.edit.id) {
 			/*! PROPS.EDIT.ID IS UNDEFINED AND THIS DOES NOT WORK YET UNTIL ZACH MAKES ID AVAILABLE FROM BACKEND SOMEHOW */
 			axios
