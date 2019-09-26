@@ -15,7 +15,7 @@ function CreateItemFormRevamp(props) {
 		if (!data.thumbnail) delete data.thumbnail
         e.preventDefault()
         if (props.edit) {
-            axios.put(`https://top-nine.herokuapp.com/api/items/${props.edit.id}`, item)
+            axios.put(`https://top-nine.herokuapp.com/api/items/${props.edit.id}`, data)
                 .then(resp => {
                     console.log(resp)
                     props.setEdit()
@@ -25,7 +25,7 @@ function CreateItemFormRevamp(props) {
                 .catch(console.error)
         }
         else {
-            axios.post(`https://top-nine.herokuapp.com/api/items/${props.editCategory.id}/items`, {name: item.name})
+            axios.post(`https://top-nine.herokuapp.com/api/items/${props.editCategory.id}/items`, data)
                 .then(resp => {
                     console.log(resp)
                     props.setEditCategory()
