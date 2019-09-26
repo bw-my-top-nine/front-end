@@ -56,7 +56,7 @@ const LoginForm = (props) => {
                     required
                     />
                 </FormGroup>
-				{failure?<p className="text-danger">Something went wrong. Your email address and/or password is incorrect or our servers are currently busy.</p>:""}
+				{failure?<p className="text-danger">Something went wrong. Your email address and/or password is incorrect, or our servers are currently busy.</p>:""}
                 <FormGroup className="text-left">
                     <Button className="bg-primary">Submit</Button>
                 </FormGroup>
