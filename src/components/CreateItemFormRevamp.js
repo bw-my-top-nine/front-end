@@ -7,7 +7,7 @@ function CreateItemFormRevamp(props) {
     const [item, setItem] = useState({name:"", thumbnail:""})
 
     function changeHandler(e) {
-        setItem({...item, [event.target.name]: event.target.value})
+        setItem({...item, [e.target.name]: e.target.value})
     }
 
     function submitHandler(e) {
@@ -17,6 +17,7 @@ function CreateItemFormRevamp(props) {
                 .then(resp => {
                     console.log(resp)
                     props.setEdit()
+                    props.setEditCategory()
                     props.history.push("/home")
                 })
                 .catch(console.error)

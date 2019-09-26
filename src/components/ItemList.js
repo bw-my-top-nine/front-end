@@ -53,19 +53,19 @@ function ItemList(props) {
                     <Button
                         className="btn-success btn-sm"
                         onClick={()=>{
-                            if (items && items[0]) {
-                                props.setEditItems(items)
-                            }
+                            // if (items && items[0]) {
+                            //     props.setEditItems(items)
+                            // }
                             props.setEditCategory(props.category)
-                            props.history.push("/home/createItemForm")
+                            props.history.push("/home/createItemFormRevamp")
                         }}
                     >
-                        Add/Edit Items
+                        Add an Item
                     </Button>
                 </div>
             </Row>
-            {items.map(item => <Item key={item.id} {...item} />)}
-            <Search />
+            {items.map(item => <Item key={item.id} item={item} {...props} />)}
+            {/* <Search /> */}
         </Container>
     )
 }
