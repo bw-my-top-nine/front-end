@@ -9,7 +9,7 @@ import {
 	PaginationLink
 } from "reactstrap";
 import axios from "axios";
-
+import Search from './Search'
 import ItemList from "./ItemList";
 
 function MyLists(props) {
@@ -31,7 +31,7 @@ function MyLists(props) {
                 console.error(err)
             })
     },[])
-
+    console.log('!!!Category in myList', categories);
     return (
         <Container>
             <Row className="justify-content-center align-items-center">
@@ -39,6 +39,7 @@ function MyLists(props) {
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
             <Row>
+                <Search categories={categories} updateCategory={setCategories}/>
                 {
                     categories.map(category => {
                         return (
