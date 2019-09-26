@@ -27,6 +27,8 @@ const CreateItems = props => {
 		image9: ""
 	});
 	const handleChanges = event => {
+		console.log(event.target.name)
+		console.log(event.target.value)
 		setItems({ ...items, [event.target.name]: event.target.value });
 		console.log(items);
 	};
@@ -34,34 +36,38 @@ const CreateItems = props => {
 		e.preventDefault();
 		let data = [];
 		for (let key of Object.keys(items)) {
-			let index = Number(key.slice(-1)) - 1; //get number at end of key string minus 1
-			if (!data[index]) data[index] = {};
-			data[index][/item/.test(key) ? "name" : "thumbnail"] = items[key];
+			console.log(key)
+			let index = Number(key.slice(-1)) - 1 //get number at end of key string minus 1
+			console.log(index)
+			if (!data[index]) data[index] = {}
+			data[index][/item/.test(key)?'name':'thumbnail'] = items[key]
+			console.log(data[index])
 		}
-		if (props.edit && props.edit[0].id) {
-			/*! PROPS.EDIT.ID IS UNDEFINED AND THIS DOES NOT WORK YET UNTIL ZACH MAKES ID AVAILABLE FROM BACKEND SOMEHOW */
+		console.log('data', data)
+		// Because axios is asyncronous, order of items is random every edit. Definitely a feature, not a bug...
+		if (props.edit && props.edit[0] && props.edit[0].id) { /*! PROPS.EDIT.ID IS UNDEFINED AND THIS DOES NOT WORK YET UNTIL ZACH MAKES ID AVAILABLE FROM BACKEND SOMEHOW */
 			data.forEach((item, index) => {
-				axios
-					.put(
-						`https://top-nine.herokuapp.com/api/items/${props.edit[index].id}`,
-						item
-					)
-					.then(console.log)
-					.catch(console.error);
-			});
+				if (props.edit[index]) {
+					axios.put(`https://top-nine.herokuapp.com/api/items/${props.edit[index].id}`, item)
+						.then(console.log)
+						.catch(console.error)
+				}
+				else {
+					axios.post(`https://top-nine.herokuapp.com/api/items/${props.editCategory.id}/items`, item) // needs category id
+						.then(console.log)
+						.catch(console.error)
+				}
+			})
 			// to do: set up boolean to only clears edit after success
 			props.setEdit();
 		} else {
 			data.forEach(item => {
-				axios
-					.post(
-						`https://top-nine.herokuapp.com/api/items/${props.userId}/items`,
-						item
-					)
+				axios.post(`https://top-nine.herokuapp.com/api/items/${props.editCategory.id}/items`, item) // needs category id
 					.then(console.log)
 					.catch(console.error);
 			});
 		}
+		props.setEditCategory()
 		// unnecessary because redirecting to /home
 		// setItems({
 		// 	item1: "",
@@ -73,12 +79,14 @@ const CreateItems = props => {
 	};
 	useEffect(() => {
 		if (props.edit && props.edit[0]) {
-			let temp = {};
+			console.log(props)
+			let temp = {}
 			props.edit.forEach((item, index) => {
-				temp[`item${index + 1}`] = item.name;
-				temp[`image${index + 1}`] = item.thumbnail;
-			});
-			setItems(temp);
+				temp[`item${index+1}`] = item.name
+				temp[`image${index+1}`] = item.thumbnail
+			})
+			console.log(temp)
+			setItems(temp)
 		}
 	}, [props]);
 

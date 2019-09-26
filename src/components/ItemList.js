@@ -15,18 +15,13 @@ function ItemList(props) {
     const [items, setItems] = useState([])
     const [deleted, setDeleted] = useState(false)
     
-    // useEffect(()=>{
-    //     axios.get('backend-url')
-    //         .then(resp=>{
-    //             console.log(resp)
-    //         })
-    //         .catch(err=>{
-    //             console.error(err)
-    //         })
-    // }, []) 
-//    const handleEdit = (e) => {
-//        e.target.value
-//    }
+    useEffect(()=>{
+        axios.get(`https://top-nine.herokuapp.com/api/items/${props.category.id}/items`)
+        .then(resp => {
+            console.log(resp)
+            setItems(resp.data)
+        })
+    }, [])
 
     return (
         <Container className="bg-secondary" hidden={deleted?true:false}>
@@ -59,7 +54,10 @@ function ItemList(props) {
                     <Button
                         className="btn-success btn-sm"
                         onClick={()=>{
-                            props.setEditItems(items)
+                            if (items && items[0]) {
+                                props.setEditItems(items)
+                            }
+                            props.setEditCategory(props.category)
                             props.history.push("/home/createItemForm")
                         }}
                     >
