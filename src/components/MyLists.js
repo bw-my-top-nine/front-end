@@ -22,11 +22,10 @@ function MyLists(props) {
                 {
                     props.categories.map(category => {
                         return (
-                            <div className="col-lg-6">
+                            <div className="col-lg-6" key={category.id}>
                                 <ItemList
+                                {...props}
                                 category={category}
-                                editCategory={props.setEditCategory}
-                                editItems={props.setEditItems}
                                 />
                             </div>
                         )
