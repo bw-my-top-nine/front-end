@@ -3,7 +3,7 @@ import React from 'react';
 const Search = (props) => {
     return(
         <div>
-            <form>
+            <form onSubmit={e=>{e.preventDefault()}}>
                 <input 
                 type='text'
                 name='name'
