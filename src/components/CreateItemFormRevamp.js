@@ -7,7 +7,7 @@ function CreateItemFormRevamp(props) {
     const [item, setItem] = useState({name:"", thumbnail:""})
 
     function changeHandler(e) {
-        setItem({...item, [e.target.name]: e.target.value})
+        setItem({...item, [e.target.name]: String(e.target.value)})
     }
 
     function submitHandler(e) {
@@ -40,7 +40,7 @@ function CreateItemFormRevamp(props) {
     },[props])
 
     return (
-        <Form className="col-sm-6" onSubmit={submitHandler}>
+        <Form className="col-sm-6 mx-auto" onSubmit={submitHandler}>
             <FormGroup>
                 <Input type="text" name="name" placeholder="Item Name" onChange={changeHandler} value={item.name} required />
             </FormGroup>
@@ -48,7 +48,7 @@ function CreateItemFormRevamp(props) {
                 <Input type="url" name="thumbnail" placeholder="Item Thumbnail URL (optional)" onChange={changeHandler} value={item.thumbnail} />
             </FormGroup>
             <FormGroup className="text-left">
-                <Button type="submit">Submit</Button>
+                <Button className="bg-primary" type="submit">Submit</Button>
             </FormGroup>
         </Form>
     )

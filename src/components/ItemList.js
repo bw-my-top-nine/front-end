@@ -52,6 +52,7 @@ function ItemList(props) {
                     {props.category.description?<p>{props.category.description}</p>:''}
                     <Button
                         className="btn-success btn-sm"
+                        disabled={(items.length>=9)?true:false}
                         onClick={()=>{
                             // if (items && items[0]) {
                             //     props.setEditItems(items)
@@ -64,7 +65,7 @@ function ItemList(props) {
                     </Button>
                 </div>
             </Row>
-            {items.map(item => <Item key={item.id} item={item} {...props} />)}
+            {items.map(item => <Item key={item.id} item={item} items={items} setItems={setItems} {...props} />)}
         </Container>
     )
 }
