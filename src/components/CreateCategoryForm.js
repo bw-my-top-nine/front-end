@@ -18,7 +18,7 @@ const CreateCategory = props => {
 
 	const submitForm = e => {
 		e.preventDefault();
-		const data = {...cat}
+		const data = { ...cat }
 		if (!data.thumbnail) delete data.thumbnail
 		if (!data.description) delete data.description
 		if (props.edit && props.edit.id) {

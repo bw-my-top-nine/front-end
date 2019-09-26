@@ -5,7 +5,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink, Button
 } from 'reactstrap'
 import { withRouter } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ function Header(props) {
                 </NavItem>
             </Nav> */}
             {/* logged in user stuff ? */}
-            <button className="bg-success" onClick={handleLogOut}>Log Out</button>
+            <Button className="bg-primary" onClick={handleLogOut}>Log Out</Button>
         </Navbar>
     )
 }
