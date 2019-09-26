@@ -30,10 +30,10 @@ function ItemList(props) {
     return (
         <Container className="bg-secondary">
             <Row>
-                {props.thumbnail?<img className="col-sm-3 p-0" src={props.thumbnail} alt={props.name} />:''}
+                {props.category.thumbnail?<img className="col-sm-3 p-0" src={props.category.thumbnail} alt={props.name} />:''}
                 <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
                     <div className="d-flex align-items-center">
-                        <h3>{props.name}</h3>
+                        <h3>{props.category.name}</h3>
                         <Button
                             className="bg-primary btn-sm mx-2"
                             onClick={()=>{
@@ -43,10 +43,26 @@ function ItemList(props) {
                         >
                             Edit
                         </Button>
-                        <Button className="btn-danger btn-sm" onClick={()=>{deleteCategory(props.category)}}>Delete</Button>
+                        <Button
+                            className="btn-danger btn-sm"
+                            onClick={()=>{
+                                deleteCategory(props.category)
+                                // to do: refresh lists (props drill or axios) or hide delete list (display:none)
+                            }}
+                        >
+                            Delete
+                        </Button>
                     </div>
-                    {props.description?<p>{props.description}</p>:''}
-                    <Button className="btn-success" onClick={()=>{props.setEditItems(props.category)}}>Add/Edit Items</Button>
+                    {props.category.description?<p>{props.category.description}</p>:''}
+                    <Button
+                        className="btn-success btn-sm"
+                        onClick={()=>{
+                            props.setEditItems(items)
+                            props.history.push("/home/createItemForm")
+                        }}
+                    >
+                        Add/Edit Items
+                    </Button>
                 </div>
             </Row>
             {items.map(item => <Item key={item.id} {...item} />)}
