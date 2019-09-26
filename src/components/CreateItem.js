@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "reactstrap";
+import { FormGroup, Input } from "reactstrap";
 import "../bootstrap.min.css";
 
 function CreateItem(props) {
@@ -7,7 +7,7 @@ function CreateItem(props) {
 	const image = `image${props.itemNum}`;
 
 	return (
-		<>
+		<FormGroup>
 			<Input
 				className="bg-primary text-white"
 				type="text"
@@ -19,11 +19,11 @@ function CreateItem(props) {
 			<Input
 				type="url"
 				name={image}
-				placeholder="Thumbnail image URL (optional)"
+				placeholder="Thumbnail Image URL (optional)"
 				onChange={props.handleChanges}
 				value={props.items[image]}
 			/>
-		</>
+		</FormGroup>
 	);
 }
 
