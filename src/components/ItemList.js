@@ -13,17 +13,17 @@ const deleteCategory = (category) => {
 function ItemList(props) {
     const [items, setItems] = useState([])
     const [deleted, setDeleted] = useState(false)
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         axios.get(`https://top-nine.herokuapp.com/api/items/${props.category.id}/items`)
-        .then(resp => {
-            console.log(resp)
-            setItems(resp.data)
-        })
+            .then(resp => {
+                console.log(resp)
+                setItems(resp.data)
+            })
     }, [])
 
     return (
-        <Container className="bg-secondary" hidden={deleted||!props.category.name.includes(props.search)?true:false}>
+        <Container className="bg-secondary" hidden={deleted || !props.category.name.includes(props.search) ? true : false}>
             <Row>
                 <img className="col-sm-3 p-0" src={props.category.thumbnail} alt={props.name} />
                 <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
@@ -31,7 +31,7 @@ function ItemList(props) {
                         <h3>{props.category.name}</h3>
                         <Button
                             className="bg-primary btn-sm mx-2"
-                            onClick={()=>{
+                            onClick={() => {
                                 props.setEditCategory(props.category)
                                 props.history.push("/home/createcategoryform")
                             }}
@@ -40,7 +40,7 @@ function ItemList(props) {
                         </Button>
                         <Button
                             className="btn-danger btn-sm"
-                            onClick={()=>{
+                            onClick={() => {
                                 deleteCategory(props.category)
                                 // to do: refresh lists (props drill or axios) or hide delete list (display:none)
                                 setDeleted(true)
@@ -49,11 +49,11 @@ function ItemList(props) {
                             Delete
                         </Button>
                     </div>
-                    {props.category.description?<p>{props.category.description}</p>:''}
+                    {props.category.description ? <p>{props.category.description}</p> : ''}
                     <Button
                         className="btn-success btn-sm"
-                        disabled={(items.length>=9)?true:false}
-                        onClick={()=>{
+                        disabled={(items.length >= 9) ? true : false}
+                        onClick={() => {
                             // if (items && items[0]) {
                             //     props.setEditItems(items)
                             // }

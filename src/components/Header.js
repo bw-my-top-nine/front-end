@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { 
+import {
     Navbar,
     NavbarBrand,
     Nav,
@@ -10,7 +10,7 @@ import {
 import { withRouter } from 'react-router-dom';
 
 function Header(props) {
-//logs you out, by clearing local storage of token and pushing you to login page currently don't have props
+    //logs you out, by clearing local storage of token and pushing you to login page currently don't have props
     const handleLogOut = () => {
         localStorage.removeItem('token')
         props.history.push('/')
@@ -27,7 +27,7 @@ function Header(props) {
                 </NavItem>
             </Nav> */}
             {/* logged in user stuff ? */}
-            <button onClick={handleLogOut}>Log Out</button>
+            <button className="bg-success" onClick={handleLogOut}>Log Out</button>
         </Navbar>
     )
 }
