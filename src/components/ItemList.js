@@ -13,6 +13,7 @@ const deleteCategory = (category) => {
 
 function ItemList(props) {
     const [items, setItems] = useState([])
+    const [deleted, setDeleted] = useState(false)
     
     // useEffect(()=>{
     //     axios.get('backend-url')
@@ -28,7 +29,7 @@ function ItemList(props) {
 //    }
 
     return (
-        <Container className="bg-secondary">
+        <Container className="bg-secondary" hidden={deleted?true:false}>
             <Row>
                 {props.category.thumbnail?<img className="col-sm-3 p-0" src={props.category.thumbnail} alt={props.name} />:''}
                 <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
@@ -48,6 +49,7 @@ function ItemList(props) {
                             onClick={()=>{
                                 deleteCategory(props.category)
                                 // to do: refresh lists (props drill or axios) or hide delete list (display:none)
+                                setDeleted(true)
                             }}
                         >
                             Delete
