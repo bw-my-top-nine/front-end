@@ -24,20 +24,21 @@ function ItemList(props) {
 
     return (
         <Container className="bg-secondary" hidden={deleted || !props.category.name.includes(props.search) ? true : false}>
-            <Row>
+            <Row className="my-3">
                 <img className="col-sm-3 p-0" src={props.category.thumbnail} alt={props.name} />
                 <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
-                    <div className="d-flex align-items-center">
+                    <div className="d-flex align-items-center w-100">
                         <h3>{props.category.name}</h3>
+
                         <Button
-                            className="bg-primary btn-sm mx-2"
+                            className="bg-primary btn-sm mx-2 ml-auto"
                             onClick={() => {
                                 props.setEditCategory(props.category)
                                 props.history.push("/home/createcategoryform")
                             }}
                         >
                             Edit
-                        </Button>
+                            </Button>
                         <Button
                             className="btn-danger btn-sm"
                             onClick={() => {
@@ -47,7 +48,8 @@ function ItemList(props) {
                             }}
                         >
                             Delete
-                        </Button>
+                            </Button>
+
                     </div>
                     {props.category.description ? <p>{props.category.description}</p> : ''}
                     <Button

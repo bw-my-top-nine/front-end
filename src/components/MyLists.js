@@ -39,8 +39,10 @@ function MyLists(props) {
                 <h2>My Lists</h2>
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
-            <Row>
+            <Row className="justify-content-center my-3">
                 <Search setSearch={setSearch} categories={categories} updateCategory={setCategories} />
+            </Row>
+            <Row>
                 {
                     categories.map(category => {
                         return (
