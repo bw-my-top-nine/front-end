@@ -16,7 +16,7 @@ export default function ItemCard(props) {
 
 	return (
 		<Row className="bg-dark">
-			{props.item.thumbnail?<img className="col-sm-3 p-0" src={props.item.thumbnail} alt={props.item.name} />:''}
+			<img className="col-sm-3 p-0" src={props.item.thumbnail} alt={props.item.name} />
 			<div className="col-sm-9 d-flex align-items-center justify-content-center justify-content-sm-start">
 				<h4>{props.item.name}</h4>
 				<Button
