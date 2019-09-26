@@ -11,6 +11,8 @@ function CreateItemFormRevamp(props) {
     }
 
     function submitHandler(e) {
+        const data = {...item}
+		if (!data.thumbnail) delete data.thumbnail
         e.preventDefault()
         if (props.edit) {
             axios.put(`https://top-nine.herokuapp.com/api/items/${props.edit.id}`, item)
@@ -23,7 +25,7 @@ function CreateItemFormRevamp(props) {
                 .catch(console.error)
         }
         else {
-            axios.post(`https://top-nine.herokuapp.com/api/items/${props.editCategory.id}/items`, item)
+            axios.post(`https://top-nine.herokuapp.com/api/items/${props.editCategory.id}/items`, {name: item.name})
                 .then(resp => {
                     console.log(resp)
                     props.setEditCategory()
@@ -41,6 +43,7 @@ function CreateItemFormRevamp(props) {
 
     return (
         <Form className="col-sm-6 mx-auto" onSubmit={submitHandler}>
+            <h4>{props.edit?'Edit':'Add'} an Item</h4>
             <FormGroup>
                 <Input type="text" name="name" placeholder="Item Name" onChange={changeHandler} value={item.name} required />
             </FormGroup>

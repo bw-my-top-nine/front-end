@@ -18,12 +18,15 @@ const CreateCategory = props => {
 
 	const submitForm = e => {
 		e.preventDefault();
+		const data = {...cat}
+		if (!data.thumbnail) delete data.thumbnail
+		if (!data.description) delete data.description
 		if (props.edit && props.edit.id) {
 			/*! PROPS.EDIT.ID IS UNDEFINED AND THIS DOES NOT WORK YET UNTIL ZACH MAKES ID AVAILABLE FROM BACKEND SOMEHOW */
 			axios
 				.put(
 					`https://top-nine.herokuapp.com/api/categories/${props.edit.id}`,
-					cat
+					data
 				)
 				.then(resp => {
 					console.log("this is in CatForm", resp);
@@ -40,7 +43,7 @@ const CreateCategory = props => {
 			axios
 				.post(
 					`https://top-nine.herokuapp.com/api/categories/${props.userId}/categories`,
-					cat
+					data
 				)
 				.then(resp => {
 					console.log("this is in CatForm", resp);
