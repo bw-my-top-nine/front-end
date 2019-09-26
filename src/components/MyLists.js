@@ -14,6 +14,7 @@ import ItemList from "./ItemList";
 
 function MyLists(props) {
     const [categories, setCategories] = useState([])
+    const [search, setSearch] = useState('')
 
     useEffect(()=>{
         // not sure if this is necessary
@@ -39,7 +40,7 @@ function MyLists(props) {
                 <Button className="btn-success btn-sm ml-3" tag={Link} to="/home/createcategoryform">Add New List</Button>
             </Row>
             <Row>
-                <Search categories={categories} updateCategory={setCategories}/>
+                <Search setSearch={setSearch} categories={categories} updateCategory={setCategories}/>
                 {
                     categories.map(category => {
                         return (
@@ -47,6 +48,7 @@ function MyLists(props) {
                                 <ItemList
                                 {...props}
                                 category={category}
+                                search={search}
                                 />
                             </div>
                         )

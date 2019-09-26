@@ -23,7 +23,7 @@ function ItemList(props) {
     }, [])
 
     return (
-        <Container className="bg-secondary" hidden={deleted?true:false}>
+        <Container className="bg-secondary" hidden={deleted||!props.category.name.includes(props.search)?true:false}>
             <Row>
                 <img className="col-sm-3 p-0" src={props.category.thumbnail} alt={props.name} />
                 <div className="col-sm-9 d-flex flex-column justify-content-center align-items-center align-items-sm-start">
