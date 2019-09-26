@@ -20,14 +20,14 @@ export default function ItemCard(props) {
 			<div className="col-sm-9 d-flex align-items-center justify-content-center justify-content-sm-start">
 				<h4>{props.item.name}</h4>
 				<Button
-					className="bg-primary btn-sm mx-2"
-					onClick={()=>{
+					className="bg-primary btn-sm mx-2 ml-auto"
+					onClick={() => {
 						props.setEditItems(props.item)
 						props.history.push("/home/createItemFormRevamp")
 					}}
 				>
 					Edit
-				</Button>
+					</Button>
 				<Button
 					className="btn-danger btn-sm"
 					onClick={deleteItem}
