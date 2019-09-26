@@ -3,7 +3,7 @@ import { Input } from "reactstrap";
 import "../bootstrap.min.css";
 
 function CreateItem(props) {
-	const name = `name${props.itemNum}`;
+	const name = `item${props.itemNum}`;
 	const image = `image${props.itemNum}`;
 
 	return (

@@ -20,13 +20,7 @@ function Home(props) {
     // moved to MyLists.js
 
 //3. axios call to get items
-    const getItems = () => {
-        axios.get('https://top-nine.herokuapp.com/api/items')
-        .then(resp => {
-            console.log(resp)
-            //setItemlist(resp.data)
-        })
-    }
+    // moved to ItemList.js
 
 
 //4. post request to post items
@@ -59,7 +53,7 @@ const saveEdit = (e) => {
         <section>
             <Route exact path="/home" render={props=><MyLists {...props} userId={userId} setEditCategory={setEditCategory} setEditItems={setEditItems} />} /> {/* to do: pass data/handlers from axios/useState */}
 			<Route path="/home/createcategoryform" render={props=><CreateCategory {...props} userId={userId} edit={editCategory} setEdit={setEditCategory} />} /> {/* to do: pass data/handlers from axios/useState */}
-			<Route path="/home/createItemForm" render={props=><CreateItemForm {...props} userId={userId} edit={editItems} setEdit={setEditItems}/>} /> {/* to do: pass data/handlers from axios/useState */}
+			<Route path="/home/createItemForm" render={props=><CreateItemForm {...props} userId={userId} edit={editItems} editCategory={editCategory} setEdit={setEditItems} setEditCategory={setEditCategory}/>} /> {/* to do: pass data/handlers from axios/useState */}
         </section>
     )
 }
