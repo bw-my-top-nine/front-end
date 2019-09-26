@@ -5,6 +5,7 @@ import { Form, FormGroup, Input, Button } from "reactstrap";
 const RegisterForm = props => {
 	console.log(props);
 	const [credentials, setCredentials] = useState({ email: "", password: "" });
+	const [failure, setFailure] = useState(false);
 	const handleChange = e => {
 		setCredentials({
 			...credentials,
@@ -25,7 +26,10 @@ const RegisterForm = props => {
 				console.log(res);
 				props.history.push("/");
 			})
-			.catch(err => console.log(err));
+			.catch(err => {
+				console.log(err);
+				setFailure(true);
+			});
 	};
 	return (
 		<div className="col-sm-6 mx-auto">
@@ -53,6 +57,7 @@ const RegisterForm = props => {
 						required
 					/>
 				</FormGroup>
+				{failure?<p className="text-danger">Something went wrong. That email address is already tied to an account or our servers are currently busy.</p>:""}
 				<FormGroup className="text-left">
 					<Button className="bg-primary">Submit</Button>
 				</FormGroup>

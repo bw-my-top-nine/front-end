@@ -6,6 +6,7 @@ import { Form, FormGroup, Input, Button } from 'reactstrap';
 const LoginForm = (props) => {
     console.log('in loginForm', props);
     const [inputValue, setInputValue] = useState({email: '', password: ''})
+    const [failure, setFailure] = useState(false);
     //sets input values from form into inputValue
     const handleChange = e => {
         setInputValue({
@@ -23,7 +24,10 @@ const LoginForm = (props) => {
             localStorage.setItem('userId', res.data.userId)
             props.history.push('/home')
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err);
+            setFailure(true);
+        });
     }
     
     return(
@@ -52,6 +56,7 @@ const LoginForm = (props) => {
                     required
                     />
                 </FormGroup>
+				{failure?<p className="text-danger">Something went wrong. Your email address and/or password is incorrect or our servers are currently busy.</p>:""}
                 <FormGroup className="text-left">
                     <Button className="bg-primary">Submit</Button>
                 </FormGroup>
