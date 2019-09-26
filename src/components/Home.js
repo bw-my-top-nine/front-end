@@ -13,7 +13,9 @@ function Home(props) {
     const userId = localStorage.getItem('userId')
 //for the getData kind of useless rn
 	const [editCategory, setEditCategory] = useState()
-	const [editItems, setEditItems] = useState()
+    const [editItems, setEditItems] = useState()
+    //gets set in Search.js and passed down in MyList
+    const [searched, setSearched] = useState()
     // const [userLists, setUserLists] = useState([])
 
 //1. axios call to get categories    
