@@ -14,19 +14,10 @@ function Home(props) {
 //for the getData kind of useless rn
 	const [editCategory, setEditCategory] = useState()
 	const [editItems, setEditItems] = useState()
-    const [userLists, setUserLists] = useState([])
+    // const [userLists, setUserLists] = useState([])
 
 //1. axios call to get categories    
-    useEffect(()=>{
-        axios.get(`https://top-nine.herokuapp.com/api/categories/${userId}/categories`)
-            .then(resp=>{
-                console.log(resp)
-                setUserLists(resp.data)
-            })
-            .catch(err=>{
-                console.error(err)
-            })
-    },[])
+    // moved to MyLists.js
 
 //3. axios call to get items
     const getItems = () => {
@@ -66,7 +57,7 @@ const saveEdit = (e) => {
 
     return (
         <section>
-            <Route exact path="/home" render={props=><MyLists {...props} categories={userLists} setEditCategory={setEditCategory} setEditItems={setEditItems} />} /> {/* to do: pass data/handlers from axios/useState */}
+            <Route exact path="/home" render={props=><MyLists {...props} userId={userId} setEditCategory={setEditCategory} setEditItems={setEditItems} />} /> {/* to do: pass data/handlers from axios/useState */}
 			<Route path="/home/createcategoryform" render={props=><CreateCategory {...props} userId={userId} edit={editCategory} setEdit={setEditCategory} />} /> {/* to do: pass data/handlers from axios/useState */}
 			<Route path="/home/createItemForm" render={props=><CreateItemForm {...props} userId={userId} edit={editItems} setEdit={setEditItems}/>} /> {/* to do: pass data/handlers from axios/useState */}
         </section>
