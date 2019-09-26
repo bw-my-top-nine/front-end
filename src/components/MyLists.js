@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
 	Container,
@@ -12,6 +12,13 @@ import {
 import ItemList from "./ItemList";
 
 function MyLists(props) {
+    // not sure if this is necessary
+    useEffect(()=>{
+        // clear edit status if navigated back to home without submitting
+        props.setEditCategory()
+        props.setEditItems()
+    },[])
+
     return (
         <Container>
             <Row className="justify-content-center align-items-center">
