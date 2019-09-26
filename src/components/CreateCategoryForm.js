@@ -76,7 +76,7 @@ const CreateCategory = props => {
 			<Form onSubmit={submitForm}>
 				<FormGroup>
 					<Input
-						className="bg-primary text-white "
+						// className="bg-primary text-white "
 						type="text"
 						name="name"
 						placeholder="Category Title"
