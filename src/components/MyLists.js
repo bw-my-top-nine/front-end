@@ -42,17 +42,16 @@ function MyLists(props) {
             <Row className="justify-content-center my-3">
                 <Search setSearch={setSearch} categories={categories} updateCategory={setCategories} />
             </Row>
-            <Row>
+            <Row className="align-items-start">
                 {
                     categories.map(category => {
                         return (
-                            <div className="col-lg-6" key={category.id}>
-                                <ItemList
-                                    {...props}
-                                    category={category}
-                                    search={search}
-                                />
-                            </div>
+                            <ItemList
+                                key={category.id}
+                                {...props}
+                                category={category}
+                                search={search}
+                            />
                         )
                     })
                 }
