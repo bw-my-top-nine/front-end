@@ -46,13 +46,12 @@ function MyLists(props) {
                 {
                     categories.map(category => {
                         return (
-                            <div className="col-lg-6" key={category.id}>
-                                <ItemList
-                                    {...props}
-                                    category={category}
-                                    search={search}
-                                />
-                            </div>
+                            <ItemList
+                                key={category.id}
+                                {...props}
+                                category={category}
+                                search={search}
+                            />
                         )
                     })
                 }
